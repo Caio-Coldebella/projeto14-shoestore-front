@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import Authentication from './styled-components/AuthenticationStyle';
+import { routes } from '../routenames';
 
 export default function Login() {
    const [name, setName] = useState();
@@ -12,7 +13,7 @@ export default function Login() {
          password
       };
       axios
-         .post("http://localhost:5000/sign-in", loginData)
+         .post(routes.login, loginData)
          .then(() => console.log("post loginData feito"))
          .catch(() => console.log("deu ruim no post user"));
    }

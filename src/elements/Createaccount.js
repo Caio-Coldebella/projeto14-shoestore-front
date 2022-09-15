@@ -18,7 +18,7 @@ export default function Createaccount() {
          fone,
       };
       axios
-         .post("http://localhost:5000/sign-up", userData)
+         .post(routes.Createaccount, userData)
          .then(() => console.log("post userData feito"))
          .catch(() => console.log("deu ruim no post user"));
    }
