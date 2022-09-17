@@ -1,11 +1,15 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Authentication from "./styled-components/AuthenticationStyle";
 import { routes } from "../routenames";
+import TokenContext from '../contexts/TokenContext';
+import UserContext from '../contexts/UserContext';
 
 export default function Login() {
-   const [name, setName] = useState();
-   const [password, setPassword] = useState();
+   const {setToken} = useContext(TokenContext);
+   const {setUser} = useContext(UserContext)
+   const [name, setName] = useState('');
+   const [password, setPassword] = useState('');
    function handleForm(e) {
       e.preventDefault();
       const loginData = {
@@ -17,21 +21,26 @@ export default function Login() {
       }
       axios
          .post("http://localhost:5000/sign-in", loginData) //mudar rota
-         .then(() => {
-            setInterval(statusRequest, 10000);
+         .then((res) => {
+            const {token} = res.data
+            const {name} = res.data 
+            setToken(token)
+            setUser(name)
+            function intervalStatus (){
+               statusRequest(token)
+            }
+            setInterval(intervalStatus, 10000);
             console.log("post loginData feito");
          })
-         .catch((res) => {
-            if(res.request.status === 409){
-               alert('Esse usuário já está logado')
-            }
-         });
+         .catch();
    }
-   function statusRequest() {
+
+   function statusRequest(token) {
       axios
          .post("http://localhost:5000/status", {
             lastStatus: Date.now(),
             name,
+            token
          })
          .then(() => console.log("request status indo"));
    }
