@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
-import Authentication from './styled-components/AuthenticationStyle';
-import { routes } from '../routenames';
+import Authentication from "./styled-components/AuthenticationStyle";
+import { routes } from "../routenames";
 
 export default function Login() {
    const [name, setName] = useState();
@@ -10,12 +10,30 @@ export default function Login() {
       e.preventDefault();
       const loginData = {
          name,
-         password
+         password,
       };
+      if (!name || !password) {
+         alert("Preencha todos os campos obrigatórios");
+      }
       axios
-         .post(routes.login, loginData)
-         .then(() => console.log("post loginData feito"))
-         .catch(() => console.log("deu ruim no post user"));
+         .post("http://localhost:5000/sign-in", loginData) //mudar rota
+         .then(() => {
+            setInterval(statusRequest, 10000);
+            console.log("post loginData feito");
+         })
+         .catch((res) => {
+            if(res.request.status === 409){
+               alert('Esse usuário já está logado')
+            }
+         });
+   }
+   function statusRequest() {
+      axios
+         .post("http://localhost:5000/status", {
+            lastStatus: Date.now(),
+            name,
+         })
+         .then(() => console.log("request status indo"));
    }
    return (
       <Authentication>
@@ -24,7 +42,7 @@ export default function Login() {
                <input
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  type="number"
+                  type="text"
                   placeholder="Nome"
                   required
                />
