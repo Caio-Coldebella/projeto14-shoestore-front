@@ -14,19 +14,12 @@ const CATEGORIE = styled.div`
     width: 100%;
     height: 45vh;
     background-color: red;
-    margin: 25px 0 25px 0;
     padding: 15px 20px 0 20px;
     column-gap: 20px;
     border-radius: 5px;
     overflow-x: scroll;
     ::-webkit-scrollbar {
-        width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-        background: #f5f5f5f5; 
-    } 
-    ::-webkit-scrollbar-thumb {
-        background: #aaaaaa; 
+        display: none;
     }
 `;
 const HIGHLIGHTS = styled.div`
