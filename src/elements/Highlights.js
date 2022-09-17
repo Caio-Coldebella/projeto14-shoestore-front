@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { routes } from "../routenames";
 import {style} from "./styled-components/HomeStyle.js";
 
@@ -10,6 +11,7 @@ function getRandomInt(max) {
 
 export default function Highlights({brand1,brand2,brand3}){
     const [data,setData] = useState([]);
+    const navigate = useNavigate();
     useEffect(()=>{
         if(data.length===0){
             axios.get(`${routes.home}?type=${brand1}`)
@@ -36,7 +38,7 @@ export default function Highlights({brand1,brand2,brand3}){
           <style.HIGHLIGHTS>
             <style.NAMECATEGORIE>Modelos em Destaque</style.NAMECATEGORIE>
             {data.length>0?data.map((item,index)=>{
-                return <style.BOXHIGHLIGHT key={index}>
+                return <style.BOXHIGHLIGHT key={index} onClick={()=>{navigate(`/${item._id}`)}}>
                     <style.IMG src={item.image} alt="tenis"/>
                     <style.TITLE>{item.name}</style.TITLE>
                     <style.PRICE>{item.price}</style.PRICE>
