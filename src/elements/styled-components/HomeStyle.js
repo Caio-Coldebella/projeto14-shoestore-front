@@ -5,6 +5,7 @@ const CONTENT = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 0 2% 0 2%;
+    margin-top: 50px;
     background-color: orange;
 `;
 const CATEGORIE = styled.div`
@@ -14,7 +15,7 @@ const CATEGORIE = styled.div`
     width: 100%;
     height: 45vh;
     background-color: red;
-    padding: 15px 20px 0 20px;
+    padding: 0 20px 0 20px;
     column-gap: 20px;
     border-radius: 5px;
     overflow-x: scroll;
@@ -38,6 +39,7 @@ const NAMECATEGORIE = styled.p`
     position: absolute;
     top: 0;
     left: 45%;
+    z-index: 1;
     font-size: 16px;
     color: #555555;
     font-weight: bold;

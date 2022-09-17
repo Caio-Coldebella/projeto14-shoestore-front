@@ -45,12 +45,12 @@ export default function Categorie({name}){
         <>
         <CONTENT>
         <ARRLEFT view={displayviewleft} onClick={()=>{(document.getElementById(`${name}${actualviewleft}`))
-            .scrollIntoView({block: "nearest", inline: "nearest"});controlarrow("left",actualviewright,
+            .scrollIntoView({behavior: 'smooth',block: "nearest", inline: "nearest"});controlarrow("left",actualviewright,
             setActualviewright,setDisplayviewright,actualviewleft,setActualviewleft,setDisplayviewleft,data.length)}}>
             <ArrowLeftCircleFill size={40}/>
         </ARRLEFT>
+        <style.NAMECATEGORIE>Modelos {name}</style.NAMECATEGORIE>
         <style.CATEGORIE>
-            <style.NAMECATEGORIE>Modelos {name}</style.NAMECATEGORIE>
             {data?data.map((item,index)=>{
                 return <style.BOX key={index} id={`${name}${index}`} onClick={()=>{navigate(`/${item._id}`)}}>
                     <style.IMG src={item.image} alt="tenis"/>
@@ -60,7 +60,7 @@ export default function Categorie({name}){
             }):null}
         </style.CATEGORIE>
         <ARRRIGHT view={displayviewright} onClick={()=>{(document.getElementById(`${name}${actualviewright}`))
-            .scrollIntoView({block: "nearest", inline: "nearest"});controlarrow("rigth",actualviewright,
+            .scrollIntoView({behavior: 'smooth',block: "nearest", inline: "nearest"});controlarrow("rigth",actualviewright,
             setActualviewright,setDisplayviewright,actualviewleft,setActualviewleft,setDisplayviewleft,data.length)}}>
             <ArrowRightCircleFill size={40}/>
         </ARRRIGHT>
@@ -74,7 +74,9 @@ const CONTENT = styled.div`
     width: 100%;
     height: 45vh;
     margin: 25px 0 25px 0;
+    padding: 15px 0 0 0;
     border-radius: 5px;
+    background-color: green;
 `;
 const ARRLEFT = styled.div`
     display: ${props => props.view};
