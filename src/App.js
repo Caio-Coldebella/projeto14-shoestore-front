@@ -15,8 +15,8 @@ export default function App(){
       <Routes>
         <Route path={routes.home} element={<Home/>}/>
         <Route path={routes.item} element={<Item/>}/>
-        <Route path={routes.createaccount} element={<Createaccount/>}/>
-        <Route path={routes.login} element={<Login/>}/>
+        <Route path='/sign-up' element={<Createaccount/>}/>
+        <Route path='/sign-in' element={<Login/>}/>
         <Route path={routes.checkout} element={<Checkout/>}/>
       </Routes>
     </BrowserRouter>

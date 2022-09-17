@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import Authentication from './styled-components/AuthenticationStyle';
+import {routes} from '../routenames';
+
 
 export default function Createaccount() {
    const [name, setName] = useState();
@@ -18,8 +20,8 @@ export default function Createaccount() {
          fone,
       };
       axios
-         .post(routes.Createaccount, userData)
-         .then(() => console.log("post userData feito"))
+         .post('http://localhost:5000/sign-up', userData) //mudar rota
+         .then(() => console.log(userData))
          .catch(() => console.log("deu ruim no post user"));
    }
    return (
