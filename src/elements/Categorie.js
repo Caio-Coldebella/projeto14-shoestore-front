@@ -76,5 +76,5 @@ const CONTENT = styled.div`
     margin: 25px 0 25px 0;
     padding: 15px 0 0 0;
     border-radius: 5px;
-    background-color: green;
+    background-color: #d1d2f9;
 `;

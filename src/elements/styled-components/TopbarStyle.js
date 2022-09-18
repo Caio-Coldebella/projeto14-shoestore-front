@@ -11,7 +11,7 @@ const CONTENT = styled.div`
     width: 100%;
     height: 50px;
     padding: 0 25px 0 25px;
-    background-color: black;
+    background-color: #576490;
 `;
 const SUBSPACE = styled.div`
     display: flex;

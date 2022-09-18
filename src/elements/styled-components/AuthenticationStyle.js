@@ -3,12 +3,12 @@ import styled from "styled-components";
 const Authentication = styled.div`
    width: 100vw;
    height: 100vh;
-   background-color: gray;
+   background-color: #d1d2f9;
    display: flex;
    align-items: center;
    justify-content: center;
    div {
-      background-color: black;
+      background-color: #576490;
       width: 40vw;
       min-height: 50vh;
       border-radius: 10px;
@@ -18,7 +18,7 @@ const Authentication = styled.div`
          align-items: center;
          padding: 35px 10px 10px 10px;
          input {
-            background-color: yellow;
+            background-color: #d1d2f9;
             width: 30vw;
             height: 50px;
             outline: none;
@@ -39,7 +39,7 @@ const Authentication = styled.div`
          button {
             min-width: 10vw;
             height: 70px;
-            background-color: green;
+            background-color: #9ef01a;
             border: none;
             border-radius: 5px;
          }
