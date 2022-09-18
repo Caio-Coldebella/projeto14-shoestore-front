@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState,useContext,useEffect} from "react";
-import { routes } from "../routenames";
 import {style} from "./styled-components/ItemStyle.js"
 import Topbar from "./Topbar";
 import { Cart4 } from "react-bootstrap-icons";
@@ -13,7 +12,7 @@ export default function Item(){
     const {token} = useContext(TokenContext);
     const navigate = useNavigate();
     useEffect(()=>{
-            axios.get(`${routes.home}?id=${idItem}`)
+            axios.get(`${process.env.REACT_APP_API_BASE_URL}/?id=${idItem}`)
             .then((res)=>{setData(res.data[0])}).catch((error)=>{console.error(error)})}
             ,[idItem]);
     return(
@@ -30,7 +29,7 @@ export default function Item(){
                         if(token.length===0){
                             navigate("/sign-in");
                         }else{
-                            axios.post(routes.checkout,{id: idItem},{headers:{Authentication: `Bearer: ${token}`}})
+                            axios.post(`${process.env.REACT_APP_API_BASE_URL}/checkout`,{id: idItem},{headers:{Authentication: `Bearer: ${token}`}})
                             .then(()=>{navigate("/")}).catch((err)=>{
                                 if(err.request.status === 404){
                                     navigate("/sign-in");

@@ -2,7 +2,6 @@ import {style} from "./styled-components/HomeStyle.js"
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {routes} from "../routenames.js";
 import { useNavigate } from "react-router-dom";
 import { ArrowRightCircleFill, ArrowLeftCircleFill } from 'react-bootstrap-icons';
 
@@ -39,7 +38,7 @@ export default function Categorie({name}){
     const [actualviewleft,setActualviewleft] = useState(-1);
     const [displayviewleft, setDisplayviewleft] = useState("none");
     useEffect(()=>{
-        axios.get(`${routes.home}?type=${name}`).then((res)=>{setData(res.data)}).catch((error)=>{console.error(error)});
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/?type=${name}`).then((res)=>{setData(res.data)}).catch((error)=>{console.error(error)});
     });
     return(
         <>
