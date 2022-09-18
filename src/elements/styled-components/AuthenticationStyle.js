@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const Authentication = styled.div`
+   display: flex;
+   flex-direction: column;
    width: 100vw;
    height: 100vh;
    background-color: #d1d2f9;
@@ -46,4 +48,9 @@ const Authentication = styled.div`
       }
    }
 `;
-export default Authentication;
+const IMG = styled.img`
+   margin-bottom: 10px;
+   width: 40vw;
+   height: fit-content;
+   `;
+export {Authentication,IMG};

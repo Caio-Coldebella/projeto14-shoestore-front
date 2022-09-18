@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState, useContext } from "react";
-import Authentication from "./styled-components/AuthenticationStyle";
+import {Authentication,IMG} from "./styled-components/AuthenticationStyle";
 import TokenContext from '../contexts/TokenContext';
 import UserContext from '../contexts/UserContext';
 import { useNavigate } from "react-router-dom";
+import logo from "../css/ligthbackground.jpg";
 
 export default function Login() {
    const {setToken} = useContext(TokenContext);
@@ -54,6 +55,7 @@ export default function Login() {
    }
    return (
       <Authentication>
+         <IMG src={logo} alt="logo"/>
          <div>
             <form onSubmit={handleForm}>
                <input
