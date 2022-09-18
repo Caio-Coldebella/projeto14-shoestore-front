@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useContext } from "react";
 import Authentication from "./styled-components/AuthenticationStyle";
-import { routes } from "../routenames";
 import TokenContext from '../contexts/TokenContext';
 import UserContext from '../contexts/UserContext';
 import { useNavigate } from "react-router-dom";
@@ -22,7 +21,7 @@ export default function Login() {
          alert("Preencha todos os campos obrigatórios");
       }
       axios
-         .post(routes.login, loginData) //mudar rota
+         .post(`${process.env.REACT_APP_API_BASE_URL}/sign-in`, loginData) //mudar rota
          .then((res) => {
             const {token} = res.data
             const {name} = res.data
@@ -46,7 +45,7 @@ export default function Login() {
 
    function statusRequest(token,userId) {
       axios
-         .post(`${routes.home}status`, {
+         .post(`${process.env.REACT_APP_API_BASE_URL}/status`, {
             lastStatus: Date.now(),
             userId: userId,
             token

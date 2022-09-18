@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import Authentication from './styled-components/AuthenticationStyle';
-import {routes} from "../routenames.js";
 import {useNavigate} from "react-router-dom";
 
 export default function Createaccount() {
@@ -21,7 +20,7 @@ export default function Createaccount() {
          phone,
       };
       axios
-         .post(routes.createaccount, userData) //mudar rota
+         .post(`${process.env.REACT_APP_API_BASE_URL}/sign-up`, userData) //mudar rota
          .then(() => {navigate('/sign-in')})
          .catch((err) => console.error(err));
    }
