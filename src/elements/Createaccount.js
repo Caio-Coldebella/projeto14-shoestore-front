@@ -21,7 +21,7 @@ export default function Createaccount() {
          phone,
       };
       axios
-         .post('http://localhost:5000/sign-up', userData) //mudar rota
+         .post(routes.createaccount, userData) //mudar rota
          .then(() => {navigate('/sign-in')})
          .catch((err) => console.error(err));
    }

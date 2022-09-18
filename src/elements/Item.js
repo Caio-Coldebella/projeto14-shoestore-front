@@ -30,7 +30,7 @@ export default function Item(){
                         if(token.length===0){
                             navigate("/sign-in");
                         }else{
-                            axios.post("http://localhost:5000/checkout",{id: idItem},{headers:{Authentication: `Bearer: ${token}`}})
+                            axios.post(routes.checkout,{id: idItem},{headers:{Authentication: `Bearer: ${token}`}})
                             .then(()=>{navigate("/")}).catch((err)=>{
                                 if(err.request.status === 404){
                                     navigate("/sign-in");

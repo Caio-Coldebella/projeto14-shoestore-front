@@ -22,7 +22,7 @@ export default function Login() {
          alert("Preencha todos os campos obrigatórios");
       }
       axios
-         .post("http://localhost:5000/sign-in", loginData) //mudar rota
+         .post(routes.login, loginData) //mudar rota
          .then((res) => {
             const {token} = res.data
             const {name} = res.data
@@ -46,7 +46,7 @@ export default function Login() {
 
    function statusRequest(token,userId) {
       axios
-         .post("http://localhost:5000/status", {
+         .post(`${routes.home}status`, {
             lastStatus: Date.now(),
             userId: userId,
             token
