@@ -44,11 +44,11 @@ export default function Categorie({name}){
     return(
         <>
         <CONTENT>
-        <ARRLEFT view={displayviewleft} onClick={()=>{(document.getElementById(`${name}${actualviewleft}`))
+        <style.ARRLEFT view={displayviewleft} onClick={()=>{(document.getElementById(`${name}${actualviewleft}`))
             .scrollIntoView({behavior: 'smooth',block: "nearest", inline: "nearest"});controlarrow("left",actualviewright,
             setActualviewright,setDisplayviewright,actualviewleft,setActualviewleft,setDisplayviewleft,data.length)}}>
             <ArrowLeftCircleFill size={40}/>
-        </ARRLEFT>
+        </style.ARRLEFT>
         <style.NAMECATEGORIE>Modelos {name}</style.NAMECATEGORIE>
         <style.CATEGORIE>
             {data?data.map((item,index)=>{
@@ -59,11 +59,11 @@ export default function Categorie({name}){
                     </style.BOX>
             }):null}
         </style.CATEGORIE>
-        <ARRRIGHT view={displayviewright} onClick={()=>{(document.getElementById(`${name}${actualviewright}`))
+        <style.ARRRIGHT view={displayviewright} onClick={()=>{(document.getElementById(`${name}${actualviewright}`))
             .scrollIntoView({behavior: 'smooth',block: "nearest", inline: "nearest"});controlarrow("rigth",actualviewright,
             setActualviewright,setDisplayviewright,actualviewleft,setActualviewleft,setDisplayviewleft,data.length)}}>
             <ArrowRightCircleFill size={40}/>
-        </ARRRIGHT>
+        </style.ARRRIGHT>
         </CONTENT>
         </>
     );
@@ -77,22 +77,4 @@ const CONTENT = styled.div`
     padding: 15px 0 0 0;
     border-radius: 5px;
     background-color: green;
-`;
-const ARRLEFT = styled.div`
-    display: ${props => props.view};
-    position: absolute;
-    z-index: 1;
-    left: 15px;
-    top: calc(50% - 20px);
-    height: 40px;
-    width: 40px;
-`;
-const ARRRIGHT = styled.div`
-    display: ${props => props.view};
-    position: absolute;
-    z-index: 1;
-    right: 15px;
-    top: calc(50% - 20px);
-    height: 40px;
-    width: 40px;
 `;

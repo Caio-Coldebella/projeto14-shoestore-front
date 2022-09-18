@@ -82,6 +82,24 @@ const PRICE = styled.p`
     font-weight: bold;
     color: black;
 `;
+const ARRLEFT = styled.div`
+    display: ${props => props.view};
+    position: absolute;
+    z-index: 1;
+    left: 15px;
+    top: calc(50% - 20px);
+    height: 40px;
+    width: 40px;
+`;
+const ARRRIGHT = styled.div`
+    display: ${props => props.view};
+    position: absolute;
+    z-index: 1;
+    right: 15px;
+    top: calc(50% - 20px);
+    height: 40px;
+    width: 40px;
+`;
 export const style = {
     CONTENT: CONTENT,
     CATEGORIE: CATEGORIE,
@@ -91,5 +109,7 @@ export const style = {
     IMG: IMG,
     TITLE: TITLE,
     PRICE: PRICE,
-    BOXHIGHLIGHT: BOXHIGHLIGHT
+    BOXHIGHLIGHT: BOXHIGHLIGHT,
+    ARRRIGHT: ARRRIGHT,
+    ARRLEFT: ARRLEFT
 };
