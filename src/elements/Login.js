@@ -4,10 +4,12 @@ import Authentication from "./styled-components/AuthenticationStyle";
 import { routes } from "../routenames";
 import TokenContext from '../contexts/TokenContext';
 import UserContext from '../contexts/UserContext';
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
    const {setToken} = useContext(TokenContext);
    const {setUser} = useContext(UserContext)
+   const navigate = useNavigate();
    const [name, setName] = useState('');
    const [password, setPassword] = useState('');
    function handleForm(e) {
@@ -23,26 +25,33 @@ export default function Login() {
          .post("http://localhost:5000/sign-in", loginData) //mudar rota
          .then((res) => {
             const {token} = res.data
-            const {name} = res.data 
+            const {name} = res.data
+            const userId = res.data._id
             setToken(token)
             setUser(name)
             function intervalStatus (){
-               statusRequest(token)
+               statusRequest(token,userId)
             }
             setInterval(intervalStatus, 10000);
             console.log("post loginData feito");
+            navigate("/");
          })
-         .catch();
+         .catch((err)=>{
+            console.error(err)
+            if(err.request.status=== 401){
+               alert("Nome ou senha incorreto")
+            }
+         });
    }
 
-   function statusRequest(token) {
+   function statusRequest(token,userId) {
       axios
          .post("http://localhost:5000/status", {
             lastStatus: Date.now(),
-            name,
+            userId: userId,
             token
          })
-         .then(() => console.log("request status indo"));
+         .then(() => console.log("request status indo")).catch((err)=>{console.error(err)});
    }
    return (
       <Authentication>
