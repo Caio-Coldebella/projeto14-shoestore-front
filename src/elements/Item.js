@@ -29,6 +29,9 @@ export default function Item(){
                     <style.ADDCART onClick={()=>{
                         if(token.length===0){
                             navigate("/sign-in");
+                        }else{
+                            axios.post(routes.checkout,{id: idItem},{headers:{Authentication: `Bearer: ${token}`}})
+                            .then(()=>{navigate("/")}).catch((err)=>{console.error(err)})
                         }
                     }}><Cart4 size={40}/></style.ADDCART>
                 </style.INFO>
