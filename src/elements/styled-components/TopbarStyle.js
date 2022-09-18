@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const CONTENT = styled.div`
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,9 +27,18 @@ const TXT = styled.p`
     color: #FFFFFF;
     font-weight: bold;
 `;
+const IMG = styled.img`
+    width: 15%;
+    height: fit-content;
+    position: absolute;
+    top: 2.5px;
+    left: 42.5%;
+    z-index: 3;
+`;
 
 export const style = {
     CONTENT: CONTENT,
     SUBSPACE: SUBSPACE,
-    TXT: TXT
+    TXT: TXT,
+    IMG: IMG
 }
