@@ -2,12 +2,14 @@ import axios from "axios";
 import { useState } from "react";
 import Authentication from './styled-components/AuthenticationStyle';
 import {routes} from "../routenames.js";
+import {useNavigate} from "react-router-dom";
 
 export default function Createaccount() {
+   const navigate = useNavigate();
    const [name, setName] = useState();
    const [password, setPassword] = useState();
    const [address, setAddress] = useState();
-   const [fone, setFone] = useState();
+   const [phone, setPhone] = useState();
    const [email, setEmail] = useState();
    function handleForm(e) {
       e.preventDefault();
@@ -16,12 +18,12 @@ export default function Createaccount() {
          password,
          email,
          address,
-         fone,
+         phone,
       };
       axios
          .post('http://localhost:5000/sign-up', userData) //mudar rota
-         .then(() => console.log(userData))
-         .catch(() => console.log("deu ruim no post user"));
+         .then(() => {navigate('/sign-in')})
+         .catch((err) => console.error(err));
    }
    return (
       <Authentication>
@@ -56,8 +58,8 @@ export default function Createaccount() {
                   required
                />
                <input
-                  value={fone}
-                  onChange={(e) => setFone(e.target.value)}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   type="number"
                   placeholder="Telefone"
                   required

@@ -26,26 +26,32 @@ export default function Login() {
          .then((res) => {
             const {token} = res.data
             const {name} = res.data
+            const userId = res.data._id
             setToken(token)
             setUser(name)
             function intervalStatus (){
-               statusRequest(token)
+               statusRequest(token,userId)
             }
             setInterval(intervalStatus, 10000);
             console.log("post loginData feito");
             navigate("/");
          })
-         .catch();
+         .catch((err)=>{
+            console.error(err)
+            if(err.request.status=== 401){
+               alert("Nome ou senha incorreto")
+            }
+         });
    }
 
-   function statusRequest(token) {
+   function statusRequest(token,userId) {
       axios
          .post("http://localhost:5000/status", {
             lastStatus: Date.now(),
-            name,
+            userId: userId,
             token
          })
-         .then(() => console.log("request status indo"));
+         .then(() => console.log("request status indo")).catch((err)=>{console.error(err)});
    }
    return (
       <Authentication>
