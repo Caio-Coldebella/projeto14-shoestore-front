@@ -22,7 +22,7 @@ export default function Createaccount() {
          phone,
       };
       axios
-         .post('http://localhost:5000/sign-up', userData) //mudar rota
+         .post(`${process.env.REACT_APP_API_BASE_URL}/sign-up`, userData) //mudar rota
          .then(() => {navigate('/sign-in')})
          .catch((err) => console.error(err));
    }

@@ -13,21 +13,21 @@ export default function Highlights({brand1,brand2,brand3}){
     const navigate = useNavigate();
     useEffect(()=>{
         if(data.length===0){
-            axios.get(`http://localhost:5000/?type=${brand1}`)
+            axios.get(`${process.env.REACT_APP_API_BASE_URL}/?type=${brand1}`)
             .then((res)=>{setData([...data,res.data[getRandomInt(res.data.length)]])})
             .catch((err)=>{console.error(err)});
         }
     },[data,brand1]);
     useEffect(()=>{
         if(data.length===1){
-            axios.get(`http://localhost:5000/?type=${brand2}`)
+            axios.get(`${process.env.REACT_APP_API_BASE_URL}/?type=${brand2}`)
             .then((res)=>{setData([...data,res.data[getRandomInt(res.data.length)]])})
             .catch((err)=>{console.error(err)});
         }
     },[data,brand2]);
     useEffect(()=>{
         if(data.length===2){
-            axios.get(`http://localhost:5000/?type=${brand3}`)
+            axios.get(`${process.env.REACT_APP_API_BASE_URL}/?type=${brand3}`)
             .then((res)=>{setData([...data,res.data[getRandomInt(res.data.length)]])})
             .catch((err)=>{console.error(err)});
         }
