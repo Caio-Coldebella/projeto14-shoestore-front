@@ -77,7 +77,9 @@ export default function Login() {
                   required
                />
                <button type="submit">Confirmar</button>
+               <Link to={'/sign-up'}>Ainda não possui uma conta?</Link>
             </form>
+            
          </div>
       </Authentication>
    );

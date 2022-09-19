@@ -12,7 +12,6 @@ const Authentication = styled.div`
    div {
       background-color: #576490;
       width: 40vw;
-      min-height: 50vh;
       border-radius: 10px;
       form {
          display: flex;
@@ -44,7 +43,15 @@ const Authentication = styled.div`
             background-color: #9ef01a;
             border: none;
             border-radius: 5px;
+            margin-bottom: 20px;
          }
+         a{
+         text-decoration: none;
+         outline: none;
+         font-size: 22px;
+         color: white;
+         cursor: pointer;
+      }
       }
    }
 `;
