@@ -30,7 +30,7 @@ export default function Item(){
                             navigate("/sign-in");
                         }else{
                             axios.post(`${process.env.REACT_APP_API_BASE_URL}/checkout`,{id: idItem},{headers:{Authentication: `Bearer: ${token}`}})
-                            .then(()=>{navigate("/")}).catch((err)=>{
+                            .then(()=>{navigate("/checkout")}).catch((err)=>{
                                 if(err.request.status === 404){
                                     navigate("/sign-in");
                                 }
