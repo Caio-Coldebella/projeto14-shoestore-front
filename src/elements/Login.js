@@ -6,6 +6,7 @@ import UserContext from '../contexts/UserContext';
 import { useNavigate } from "react-router-dom";
 import logo from "../css/ligthbackground.jpg";
 
+
 export default function Login() {
    const {setToken} = useContext(TokenContext);
    const {setUser} = useContext(UserContext)
@@ -22,7 +23,7 @@ export default function Login() {
          alert("Preencha todos os campos obrigatórios");
       }
       axios
-         .post(`${process.env.REACT_APP_API_BASE_URL}/sign-in`, loginData) //mudar rota
+         .post(`http://localhost:5000/sign-in`, loginData) //mudar rota
          .then((res) => {
             const {token} = res.data
             const {name} = res.data

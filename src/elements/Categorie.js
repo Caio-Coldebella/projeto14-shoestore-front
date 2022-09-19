@@ -38,7 +38,7 @@ export default function Categorie({name}){
     const [actualviewleft,setActualviewleft] = useState(-1);
     const [displayviewleft, setDisplayviewleft] = useState("none");
     useEffect(()=>{
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/?type=${name}`).then((res)=>{setData(res.data)}).catch((error)=>{console.error(error)});
+        axios.get(`http://localhost:5000/?type=${name}`).then((res)=>{setData(res.data)}).catch((error)=>{console.error(error)});
     });
     return(
         <>

@@ -4,6 +4,7 @@ import {Authentication,IMG} from './styled-components/AuthenticationStyle';
 import {useNavigate} from "react-router-dom";
 import logo from "../css/ligthbackground.jpg";
 
+
 export default function Createaccount() {
    const navigate = useNavigate();
    const [name, setName] = useState();
@@ -21,7 +22,7 @@ export default function Createaccount() {
          phone,
       };
       axios
-         .post(`${process.env.REACT_APP_API_BASE_URL}/sign-up`, userData) //mudar rota
+         .post('http://localhost:5000/sign-up', userData) //mudar rota
          .then(() => {navigate('/sign-in')})
          .catch((err) => console.error(err));
    }
