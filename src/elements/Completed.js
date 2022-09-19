@@ -11,7 +11,9 @@ export default function Completed() {
    const { user } = useContext(UserContext);
    useEffect(() => {
       axios
-         .get(`${process.env.REACT_APP_API_BASE_URL}/completed`, { headers: { user: user } })
+         .get(`${process.env.REACT_APP_API_BASE_URL}/completed`, {
+            headers: { user: user },
+         })
          .then((res) => {
             setCheckoutInfo(res.data);
             console.log(checkoutInfo);
@@ -29,7 +31,9 @@ export default function Completed() {
                   Nome: <span>{checkoutInfo?.name}</span>
                </h4>
                <h4>itens:</h4>
-               <h4>{checkoutInfo?.products}</h4>
+               {checkoutInfo?.productsName.map((productName) => {
+                  <h4>{productName}</h4>;
+               })}
                <h4>
                   Endereço: <span>{checkoutInfo?.address}</span>
                </h4>
