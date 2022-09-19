@@ -30,10 +30,6 @@ export default function Completed() {
                <h4>
                   Nome: <span>{checkoutInfo?.name}</span>
                </h4>
-               <h4>itens:</h4>
-               {checkoutInfo?.productsName.map((productName) => {
-                  <h4>{productName}</h4>;
-               })}
                <h4>
                   Endereço: <span>{checkoutInfo?.address}</span>
                </h4>
