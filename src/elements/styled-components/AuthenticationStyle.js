@@ -24,7 +24,7 @@ const Authentication = styled.div`
             width: 30vw;
             height: 50px;
             outline: none;
-            color: white;
+            color: black;
             font-size: 24px;
             font-weight: 700;
             padding-left: 10px;
