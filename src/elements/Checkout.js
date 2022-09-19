@@ -67,6 +67,7 @@ export default function Checkout() {
                         alert('É necessário adicionar itens antes de confirmar a compra')
                         return
                     }
+                    
                      axios
                         .post(`${process.env.REACT_APP_API_BASE_URL}/completed`, { name: user,sum:total })
                         .then(() => {

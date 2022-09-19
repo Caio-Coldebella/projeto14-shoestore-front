@@ -34,7 +34,6 @@ export default function Login() {
                statusRequest(token,userId)
             }
             setInterval(intervalStatus, 10000);
-            console.log("post loginData feito");
             navigate("/");
          })
          .catch((err)=>{
@@ -55,7 +54,7 @@ export default function Login() {
             userId: userId,
             token
          })
-         .then(() => console.log("request status indo")).catch((err)=>{console.error(err)});
+         .then(() => {}).catch((err)=>{console.error(err)});
    }
    return (
       <Authentication>
