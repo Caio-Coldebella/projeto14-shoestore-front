@@ -68,7 +68,7 @@ export default function Checkout() {
                         return
                     }
                      axios
-                        .post("${process.env.REACT_APP_API_BASE_URL}/completed", { name: user,sum:total })
+                        .post(`${process.env.REACT_APP_API_BASE_URL}/completed`, { name: user,sum:total })
                         .then(() => {
                            console.log("post completed");
                            navigate("/completed");
