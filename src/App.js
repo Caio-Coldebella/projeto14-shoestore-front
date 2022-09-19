@@ -9,6 +9,7 @@ import Checkout from "./elements/Checkout";
 import TokenContext from "./contexts/TokenContext";
 import UserContext from "./contexts/UserContext";
 import { useState } from "react";
+import Completed from "./elements/Completed";
 
 export default function App(){
   const [token,setToken] = useState("");
@@ -24,6 +25,7 @@ export default function App(){
         <Route path="/sign-up" element={<Createaccount/>}/>
         <Route path="/sign-in" element={<Login/>}/>
         <Route path="/checkout" element={<Checkout/>}/>
+        <Route path="/completed" element={<Completed/>}/>
       </Routes>
     </BrowserRouter>
     </UserContext.Provider>
