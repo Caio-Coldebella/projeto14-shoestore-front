@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import {Authentication,IMG} from "./styled-components/AuthenticationStyle";
 import TokenContext from '../contexts/TokenContext';
 import UserContext from '../contexts/UserContext';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../css/ligthbackground.jpg";
 
 
@@ -40,7 +40,10 @@ export default function Login() {
          .catch((err)=>{
             console.error(err)
             if(err.request.status=== 401){
-               alert("Nome ou senha incorreto")
+               alert("O nome ou a senha estão incorretos")
+            }
+            if(err.request.status=== 404){
+               alert("A senha está incorreta")
             }
          });
    }
@@ -56,7 +59,7 @@ export default function Login() {
    }
    return (
       <Authentication>
-         <IMG src={logo} alt="logo"/>
+         <Link to={'/'}><IMG src={logo} alt="logo"/></Link>
          <div>
             <form onSubmit={handleForm}>
                <input

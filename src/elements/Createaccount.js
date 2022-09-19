@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import {Authentication,IMG} from './styled-components/AuthenticationStyle';
-import {useNavigate} from "react-router-dom";
+import {useNavigate ,Link} from "react-router-dom";
 import logo from "../css/ligthbackground.jpg";
 
 
@@ -28,7 +28,7 @@ export default function Createaccount() {
    }
    return (
       <Authentication>
-         <IMG src={logo} alt="logo"/>
+         <Link to={'/'}><IMG src={logo} alt="logo"/></Link>
          <div>
             <form onSubmit={handleForm}>
                <input
